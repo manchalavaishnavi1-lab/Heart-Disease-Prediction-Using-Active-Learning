@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+
+<h2>Heart Disease Prediction System</h2>
+
+<form action="/predict" method="post">
+
+    Age:
+    <input type="number" name="age" value="{{ form_data['age'] if form_data else '' }}"><br><br>
+
+    Sex (1=Male, 0=Female):
+    <input type="number" name="sex" value="{{ form_data['sex'] if form_data else '' }}"><br><br>
+
+    Chest Pain (0-3):
+    <input type="number" name="cp" value="{{ form_data['cp'] if form_data else '' }}"><br><br>
+
+    BP:
+    <input type="number" name="trestbps" value="{{ form_data['trestbps'] if form_data else '' }}"><br><br>
+
+    Cholesterol:
+    <input type="number" name="chol" value="{{ form_data['chol'] if form_data else '' }}"><br><br>
+
+    FBS:
+    <input type="number" name="fbs" value="{{ form_data['fbs'] if form_data else '' }}"><br><br>
+
+    ECG:
+    <input type="number" name="restecg" value="{{ form_data['restecg'] if form_data else '' }}"><br><br>
+
+    Max HR:
+    <input type="number" name="thalach" value="{{ form_data['thalach'] if form_data else '' }}"><br><br>
+
+    Angina:
+    <input type="number" name="exang" value="{{ form_data['exang'] if form_data else '' }}"><br><br>
+
+    Oldpeak:
+    <input type="number" step="any" name="oldpeak" value="{{ form_data['oldpeak'] if form_data else '' }}"><br><br>
+
+    Slope:
+    <input type="number" name="slope" value="{{ form_data['slope'] if form_data else '' }}"><br><br>
+
+    CA:
+    <input type="number" name="ca" value="{{ form_data['ca'] if form_data else '' }}"><br><br>
+
+    Thal:
+    <input type="number" name="thal" value="{{ form_data['thal'] if form_data else '' }}"><br><br>
+
+    <input type="submit" value="Predict">
+
+</form>
+
+<br>
+
+{% if prediction %}
+    <h3>{{ prediction }}</h3>
+    <h4>Probability: {{ probability }}</h4>
+{% endif %}
+
+</body>
+</html>
